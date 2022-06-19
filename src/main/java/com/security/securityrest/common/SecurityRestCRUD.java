@@ -1,4 +1,4 @@
-package com.security.securityrest;
+package com.security.securityrest.common;
 
 import java.util.List;
 

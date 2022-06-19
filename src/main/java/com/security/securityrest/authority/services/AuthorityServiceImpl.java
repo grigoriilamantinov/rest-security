@@ -2,7 +2,6 @@ package com.security.securityrest.authority.services;
 
 import com.security.securityrest.authority.dao.AuthoritiesRepository;
 import com.security.securityrest.authority.dto.AuthorityWithoutUser;
-import com.security.securityrest.authority.entity.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
