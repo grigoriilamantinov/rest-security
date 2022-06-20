@@ -1,11 +1,12 @@
 package com.security.securityrest.authority.entity;
 
-import com.security.securityrest.users.entity.User;
+import com.security.securityrest.users.entity.UserEntity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,12 +32,20 @@ public class Authority {
     @Column(name = "role")
     private String role;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(
+        fetch = FetchType.LAZY,
+        cascade = {
+            CascadeType.DETACH,
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+            CascadeType.REFRESH
+        }
+    )
     @JoinTable(
         name = "users_authorities",
         joinColumns = @JoinColumn(name = "roles_id"),
         inverseJoinColumns = @JoinColumn(name = "users_login"))
-    private List<User> usersList;
+    private List<UserEntity> usersList;
 
     public Authority(int id, String role) {
         this.id = id;

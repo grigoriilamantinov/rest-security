@@ -1,9 +1,9 @@
 package com.security.securityrest.users.dao;
 
-import com.security.securityrest.users.entity.User;
+import com.security.securityrest.users.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
-@Repository
-public interface UserRepository extends JpaRepository<User, String> {
+@Component
+public interface UserRepository extends JpaRepository<UserEntity, String> {
 }

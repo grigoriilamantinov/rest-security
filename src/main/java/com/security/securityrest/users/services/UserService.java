@@ -1,23 +1,19 @@
 package com.security.securityrest.users.services;
 
 import com.security.securityrest.common.SecurityRestCRUD;
-import com.security.securityrest.users.dto.UserWithNameDTO;
-import com.security.securityrest.users.entity.User;
+import com.security.securityrest.users.entity.UserEntity;
+
 
 import java.util.List;
 
-public interface UserService extends SecurityRestCRUD<User> {
-    List<UserWithNameDTO> getAllUserWithName();
+public interface UserService extends SecurityRestCRUD<UserEntity> {
+    @Override
+    List<UserEntity> getAll();
 
     @Override
-    List<User> getAll();
+    void save(UserEntity user);
 
-    @Override
-    void save(User user);
+    UserEntity getById(String id);
 
-    @Override
-    User getById(int id);
-
-    @Override
-    void delete(int id);
+    void delete(String id);
 }

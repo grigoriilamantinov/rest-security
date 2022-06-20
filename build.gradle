@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.7.0'
+    id 'org.springframework.boot' version '2.6.7'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -64,18 +64,11 @@ dependencies {
     jaxb("org.glassfish.jaxb:jaxb-xjc")
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
-
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+    implementation group: 'javax.activation', name: 'activation', version: '1.1.1'
+    implementation 'org.glassfish:javax.el:3.0.0'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'wsdl4j:wsdl4j'
-    jaxb("org.glassfish.jaxb:jaxb-xjc")
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
-//    testImplementation 'org.springframework.security:spring-security-test'
-}
-
-dependencies {
-
 }
