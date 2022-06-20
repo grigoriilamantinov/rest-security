@@ -2,12 +2,15 @@ package com.security.securityrest.users.services;
 
 import com.security.securityrest.users.dao.UserRepository;
 
+import com.security.securityrest.users.dto.UserTransformer;
 import com.security.securityrest.users.entity.UserEntity;
+import com.security.securityrest.users.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -20,38 +23,26 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
     }
 
-
     @Override
-    public UserEntity getById(int id) {
-        return null;
+    public List<User> getAll() {
+        return userRepository.findAll().stream()
+            .map(userEntity -> UserTransformer.of(userEntity))
+            .collect(Collectors.toList());
     }
 
     @Override
-    public List<UserEntity> getAll() {
-        System.out.println();
-        var result = userRepository.findAll();
-        return result;
-    }
-
-    @Override
-    public void save(UserEntity user) {
+    public void save(User user) {
 
     }
 
+
     @Override
-    public UserEntity getById(String id) {
-        System.out.println();
-        UserEntity result = userRepository.findById(id).orElseThrow();
-        return result;
+    public User getById(String id) {
+        return UserTransformer.of(userRepository.findById(id).orElseThrow());
     }
 
     @Override
     public void delete(String id) {
-
-    }
-
-    @Override
-    public void delete(int id) {
 
     }
 }

@@ -14,6 +14,8 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import java.util.stream.Collectors;
+
 
 @Endpoint
 public class UserEndpoint {
@@ -31,19 +33,14 @@ public class UserEndpoint {
     @ResponsePayload
     public GetUserResponse getUser(@RequestPayload GetUserRequest request) {
         GetUserResponse getUserResponse = new GetUserResponse();
-        var user = UserTransformer.of(userService.getById(request.getLogin()));
-        getUserResponse.setUser(user);
-
+        getUserResponse.setUser(userService.getById(request.getLogin()));
         return getUserResponse;
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "userFindAllRequest")
     @ResponsePayload
-    public UserFindAllResponse getUser(@RequestPayload UserFindAllRequest request) {
-        UserFindAllResponse getUserResponse = new UserFindAllResponse();
-        var user = UserTransformer.of(new UserEntity("bib", "bob","b"));
-        getUserResponse.setUser(user);
-
-        return getUserResponse;
+    public UserFindAllResponse getAllUser(@RequestPayload UserFindAllRequest request) {
+        UserFindAllResponse userFindAllResponse = new UserFindAllResponse();
+        return userFindAllResponse;
     }
 }
