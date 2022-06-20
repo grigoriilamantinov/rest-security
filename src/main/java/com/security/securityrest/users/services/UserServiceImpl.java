@@ -6,9 +6,11 @@ import com.security.securityrest.users.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
 
@@ -26,7 +28,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<UserEntity> getAll() {
-        return null;
+        System.out.println();
+        var result = userRepository.findAll();
+        return result;
     }
 
     @Override
@@ -37,7 +41,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserEntity getById(String id) {
         System.out.println();
-        UserEntity result = userRepository.getById(id);
+        UserEntity result = userRepository.findById(id).orElseThrow();
         return result;
     }
 
