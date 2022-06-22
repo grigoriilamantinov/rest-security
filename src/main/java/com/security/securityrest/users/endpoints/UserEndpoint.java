@@ -29,7 +29,7 @@ public class UserEndpoint {
         this.userService = userService;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getUserRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getUserById")
     @ResponsePayload
     public GetUserResponse getUser(@RequestPayload GetUserRequest request) {
         GetUserResponse getUserResponse = new GetUserResponse();
