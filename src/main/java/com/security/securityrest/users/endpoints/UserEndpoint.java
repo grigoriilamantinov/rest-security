@@ -43,6 +43,7 @@ public class UserEndpoint {
     @ResponsePayload
     public GetAllUserResponse getAllUser() {
         GetAllUserResponse response = new GetAllUserResponse();
+        response.setUserList(userService.getAll());
         return response;
     }
 

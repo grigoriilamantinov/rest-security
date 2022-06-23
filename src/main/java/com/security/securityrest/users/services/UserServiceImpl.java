@@ -2,9 +2,11 @@ package com.security.securityrest.users.services;
 
 import com.security.securityrest.users.dao.UserRepository;
 
+import com.security.securityrest.users.dto.UserListTransformer;
 import com.security.securityrest.users.dto.UserTransformer;
 import com.security.securityrest.users.entity.UserEntity;
 import com.security.securityrest.users.entity.user.User;
+import com.security.securityrest.users.entity.user.UserList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,10 +26,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> getAll() {
-        return userRepository.findAll().stream()
-            .map(userEntity -> UserTransformer.of(userEntity))
-            .collect(Collectors.toList());
+    public UserList getAll() {
+        var userList = userRepository.findAll();
+        return UserListTransformer.of(userList);
     }
 
     @Override

@@ -23,7 +23,7 @@
     <xs:element name="getAllUserResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="user" type="tns:user"/>
+                <xs:element name="userList" type="tns:userList"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -83,6 +83,16 @@
             <xs:element name="authority" type="tns:valueList"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:complexType name="userList">
+        <xs:sequence>
+            <xs:element name="usersValueList" type="tns:usersValueList"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="usersValueList">
+        <xs:list itemType="xs:string"/>
+    </xs:simpleType>
 
     <xs:simpleType name="valueList">
         <xs:list itemType="xs:string"/>

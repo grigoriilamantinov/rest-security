@@ -21,10 +21,10 @@ public class UserTransformer {
         User user = new User();
         user.setLogin(userEntity.getLogin());
         user.setName(userEntity.getFirstName());
-        var list = userEntity.getRolesList().stream()
+        var roleList = userEntity.getRolesList().stream()
             .map(authority -> authority.getRole())
             .collect(Collectors.toList());
-        list.forEach(role -> user.getAuthority().add(role));
+        roleList.forEach(role -> user.getAuthority().add(role));
         return user;
     }
 }
