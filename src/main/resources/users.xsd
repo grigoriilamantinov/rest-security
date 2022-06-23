@@ -77,6 +77,7 @@
     <xs:element name="addUserResponse">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="success" type="xs:boolean"/>
                 <xs:element name="user" type="tns:user"/>
             </xs:sequence>
         </xs:complexType>
