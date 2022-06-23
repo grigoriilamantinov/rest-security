@@ -1,7 +1,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://user.entity.users.securityrest.security.com"
            targetNamespace="http://user.entity.users.securityrest.security.com" elementFormDefault="qualified">
 
-    <xs:element name="getUserRequest">
+    <xs:element name="getUserByLoginRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="login" type="xs:string"/>
@@ -9,7 +9,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="getUserResponse">
+    <xs:element name="getUserByLoginResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="user" type="tns:user"/>
@@ -17,7 +17,18 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="userFindAllRequest">
+    <xs:element name="getAllUserRequest">
+    </xs:element>
+
+    <xs:element name="getAllUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteUserRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="login" type="xs:string"/>
@@ -25,10 +36,42 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="userFindAllResponse">
+    <xs:element name="deleteUserResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="user" type="tns:user"/>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateUserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="login" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addUserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="login" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -37,14 +80,24 @@
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="login" type="xs:string"/>
+            <xs:element name="authority" type="tns:valueList"/>
         </xs:sequence>
     </xs:complexType>
 
-<!--    <xs:simpleType name="currency">-->
+    <xs:simpleType name="valueList">
+        <xs:list itemType="xs:string"/>
+    </xs:simpleType>
+
+
+
+
+
+<!--    <xs:simpleType name="authority">-->
 <!--        <xs:restriction base="xs:string">-->
-<!--            <xs:enumeration value="GBP"/>-->
-<!--            <xs:enumeration value="EUR"/>-->
-<!--            <xs:enumeration value="PLN"/>-->
+<!--            <xs:enumeration value="Operator"/>-->
+<!--            <xs:enumeration value="Analytic"/>-->
+<!--            <xs:enumeration value="Admin"/>-->
 <!--        </xs:restriction>-->
 <!--    </xs:simpleType>-->
+
 </xs:schema>

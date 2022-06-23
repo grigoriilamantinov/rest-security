@@ -6,7 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
+
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -20,6 +21,10 @@ public class UserTransformer {
         User user = new User();
         user.setLogin(userEntity.getLogin());
         user.setName(userEntity.getFirstName());
+        var list = userEntity.getRolesList().stream()
+            .map(authority -> authority.getRole())
+            .collect(Collectors.toList());
+        list.forEach(role -> user.getAuthority().add(role));
         return user;
     }
 }

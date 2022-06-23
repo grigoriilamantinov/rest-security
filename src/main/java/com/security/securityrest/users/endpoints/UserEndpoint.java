@@ -1,12 +1,14 @@
 package com.security.securityrest.users.endpoints;
 
-import com.security.securityrest.users.dto.UserTransformer;
-import com.security.securityrest.users.entity.UserEntity;
-import com.security.securityrest.users.entity.user.GetUserRequest;
-import com.security.securityrest.users.entity.user.GetUserResponse;
-import com.security.securityrest.users.entity.user.User;
-import com.security.securityrest.users.entity.user.UserFindAllRequest;
-import com.security.securityrest.users.entity.user.UserFindAllResponse;
+import com.security.securityrest.users.entity.user.AddUserRequest;
+import com.security.securityrest.users.entity.user.AddUserResponse;
+import com.security.securityrest.users.entity.user.DeleteUserRequest;
+import com.security.securityrest.users.entity.user.DeleteUserResponse;
+import com.security.securityrest.users.entity.user.GetAllUserResponse;
+import com.security.securityrest.users.entity.user.GetUserByLoginRequest;
+import com.security.securityrest.users.entity.user.GetUserByLoginResponse;
+import com.security.securityrest.users.entity.user.UpdateUserRequest;
+import com.security.securityrest.users.entity.user.UpdateUserResponse;
 import com.security.securityrest.users.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -29,18 +31,42 @@ public class UserEndpoint {
         this.userService = userService;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getUserById")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getUserByLoginRequest")
     @ResponsePayload
-    public GetUserResponse getUser(@RequestPayload GetUserRequest request) {
-        GetUserResponse getUserResponse = new GetUserResponse();
-        getUserResponse.setUser(userService.getById(request.getLogin()));
-        return getUserResponse;
+    public GetUserByLoginResponse getUserById (@RequestPayload GetUserByLoginRequest request) {
+        GetUserByLoginResponse response = new GetUserByLoginResponse();
+        response.setUser(userService.getById(request.getLogin()));
+        return response;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "userFindAllRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getAllUserRequest")
     @ResponsePayload
-    public UserFindAllResponse getAllUser(@RequestPayload UserFindAllRequest request) {
-        UserFindAllResponse userFindAllResponse = new UserFindAllResponse();
-        return userFindAllResponse;
+    public GetAllUserResponse getAllUser() {
+        GetAllUserResponse response = new GetAllUserResponse();
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteUserRequest")
+    @ResponsePayload
+    public DeleteUserResponse deleteUserById(@RequestPayload DeleteUserRequest request) {
+        DeleteUserResponse response = new DeleteUserResponse();
+        userService.delete(request.getLogin());
+        response.setMessage("Deleted");
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateUserRequest")
+    @ResponsePayload
+    public UpdateUserResponse updateUser(@RequestPayload UpdateUserRequest request) {
+        UpdateUserResponse response = new UpdateUserResponse();
+
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addUserRequest")
+    @ResponsePayload
+    public AddUserResponse addUser(@RequestPayload AddUserRequest request) {
+        AddUserResponse response = new AddUserResponse();
+        return response;
     }
 }

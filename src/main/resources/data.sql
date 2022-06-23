@@ -10,3 +10,4 @@ insert into users_authorities (users_login, roles_id) values ('vas', 1);
 insert into users_authorities (users_login, roles_id) values ('vas', 3);
 insert into users_authorities (users_login, roles_id) values ('pet', 1);
 insert into users_authorities (users_login, roles_id) values ('pet', 2);
+insert into users_authorities (users_login, roles_id) values ('vic', 3);

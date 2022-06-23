@@ -47,4 +47,6 @@ public class Authority {
         inverseJoinColumns = @JoinColumn(name = "users_login"))
     private List<UserEntity> usersList;
 
+
+
 }
