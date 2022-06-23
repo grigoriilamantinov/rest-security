@@ -8,9 +8,5 @@ import java.util.List;
 public interface AuthorityService {
     List<AuthorityWithoutUser> getAll();
 
-    void save(AuthorityWithoutUser auth);
-
     Authority getById(int id);
-
-    void delete(int id);
 }

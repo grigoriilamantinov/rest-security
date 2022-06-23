@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 public class UserEndpoint {
     private static final String NAMESPACE_URI = "http://user.entity.users.securityrest.security.com";
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserEndpoint(
         @Autowired UserService userService
@@ -36,7 +36,7 @@ public class UserEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getUserByLoginRequest")
     @ResponsePayload
-    public GetUserByLoginResponse getUserById (@RequestPayload GetUserByLoginRequest request) {
+    public GetUserByLoginResponse getUserById (@RequestPayload final GetUserByLoginRequest request) {
         GetUserByLoginResponse response = new GetUserByLoginResponse();
         response.setUser(userService.getById(request.getLogin()));
         return response;
@@ -52,27 +52,27 @@ public class UserEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteUserRequest")
     @ResponsePayload
-    public DeleteUserResponse deleteUserById(@RequestPayload DeleteUserRequest request) {
+    public DeleteUserResponse deleteUserById(@RequestPayload final DeleteUserRequest request) {
         DeleteUserResponse response = new DeleteUserResponse();
         userService.delete(request.getLogin());
         response.setMessage("Deleted");
         return response;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateUserRequest")
-    @ResponsePayload
-    public UpdateUserResponse updateUser(@RequestPayload UpdateUserRequest request) {
-        UpdateUserResponse response = new UpdateUserResponse();
-
-        return response;
-    }
+//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateUserRequest")
+//    @ResponsePayload
+//    public UpdateUserResponse updateUser(@RequestPayload final UpdateUserRequest request) {
+//        UpdateUserResponse response = new UpdateUserResponse();
+//        return response;
+//    }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addUserRequest")
     @ResponsePayload
-    public AddUserResponse addUser(@RequestPayload AddUserRequest request) {
+    public AddUserResponse addUser(@RequestPayload final AddUserRequest request) {
 
-        var isValid = ValidationControl.checkInput(request);
+        final var isValid = ValidationControl.checkInput(request);
         AddUserResponse response = new AddUserResponse();
+
         if (isValid) {
             UserEntity userEntity = new UserEntity(
                 request.getLogin(),
@@ -84,6 +84,7 @@ public class UserEndpoint {
 
             response.setUser(userService.getById(request.getLogin()));
         }
+
         response.setSuccess(isValid);
         return response;
     }

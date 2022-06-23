@@ -9,7 +9,7 @@ public class ValidationControl {
     private final static Pattern bigLetterPattern = Pattern.compile("\\p{Lu}");
     private final static Pattern digitPattern = Pattern.compile("\\d");
 
-    public static boolean checkInput(AddUserRequest request) {
+    public static boolean checkInput(final AddUserRequest request) {
         Matcher matcherDigit = digitPattern.matcher(request.getPassword());
         Matcher matcherBigLetterPattern = bigLetterPattern.matcher(request.getPassword());
 

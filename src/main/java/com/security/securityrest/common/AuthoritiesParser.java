@@ -5,8 +5,6 @@ import com.security.securityrest.authority.services.AuthorityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,15 +18,9 @@ public class AuthoritiesParser {
         AuthoritiesParser.authorityService = authorityService;
     }
 
-    public static List<Authority> parsToList(List<String> stringXML) {
-        List<Authority> listAuthority = new ArrayList<>();
-
-        for (String role : stringXML) {
-            Integer id = Integer.parseInt(role);
-            var add  = authorityService.getById(id);
-            listAuthority.add(add);
-//            new Authority(id, add.getRole())
-        }
-        return listAuthority;
+    public static List<Authority> parsToList(final List<String> stringXML) {
+        return stringXML.stream()
+            .map(roleId -> authorityService.getById(Integer.parseInt(roleId)))
+            .collect(Collectors.toList());
     }
 }

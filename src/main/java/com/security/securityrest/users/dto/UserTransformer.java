@@ -17,7 +17,7 @@ public class UserTransformer {
     private String login;
     private String name;
 
-    public static User of (UserEntity userEntity) {
+    public static User of (final UserEntity userEntity) {
         User user = new User();
         user.setLogin(userEntity.getLogin());
         user.setName(userEntity.getFirstName());

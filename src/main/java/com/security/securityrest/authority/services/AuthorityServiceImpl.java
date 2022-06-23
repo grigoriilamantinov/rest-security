@@ -27,17 +27,7 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Override
-    public void save(AuthorityWithoutUser auth) {
-
-    }
-
-    @Override
-    public Authority getById(int id) {
+    public Authority getById(final int id) {
         return authoritiesRepository.findById(id).orElseThrow() ;
-    }
-
-    @Override
-    public void delete(int id) {
-
     }
 }

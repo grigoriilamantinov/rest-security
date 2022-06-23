@@ -16,11 +16,11 @@ import java.util.stream.Collectors;
 @EqualsAndHashCode
 @AllArgsConstructor
 public class UserListTransformer {
-    private String name;
-    private String login;
+    private final String name;
+    private final String login;
     private static final String SPACE = " ";
 
-    public static UserList of (List<UserEntity> userEntityList) {
+    public static UserList of (final List<UserEntity> userEntityList) {
         UserList userList = new UserList();
         for (UserEntity user : userEntityList) {
             userList.getUsersValueList()

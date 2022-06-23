@@ -44,24 +44,24 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="updateUserRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="login" type="xs:string"/>
-                <xs:element name="name" type="xs:string"/>
-                <xs:element name="password" type="xs:string"/>
-                <xs:element name="authority" type="tns:valueList"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+<!--    <xs:element name="updateUserRequest">-->
+<!--        <xs:complexType>-->
+<!--            <xs:sequence>-->
+<!--                <xs:element name="login" type="xs:string"/>-->
+<!--                <xs:element name="name" type="xs:string"/>-->
+<!--                <xs:element name="password" type="xs:string"/>-->
+<!--                <xs:element name="authority" type="tns:valueList"/>-->
+<!--            </xs:sequence>-->
+<!--        </xs:complexType>-->
+<!--    </xs:element>-->
 
-    <xs:element name="updateUserResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="user" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+<!--    <xs:element name="updateUserResponse">-->
+<!--        <xs:complexType>-->
+<!--            <xs:sequence>-->
+<!--                <xs:element name="user" type="xs:string"/>-->
+<!--            </xs:sequence>-->
+<!--        </xs:complexType>-->
+<!--    </xs:element>-->
 
     <xs:element name="addUserRequest">
         <xs:complexType>
