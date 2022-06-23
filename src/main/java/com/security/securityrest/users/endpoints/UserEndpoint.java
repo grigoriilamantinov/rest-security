@@ -1,5 +1,7 @@
 package com.security.securityrest.users.endpoints;
 
+import com.security.securityrest.common.AuthoritiesParser;
+import com.security.securityrest.users.entity.UserEntity;
 import com.security.securityrest.users.entity.user.AddUserRequest;
 import com.security.securityrest.users.entity.user.AddUserResponse;
 import com.security.securityrest.users.entity.user.DeleteUserRequest;
@@ -67,7 +69,15 @@ public class UserEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addUserRequest")
     @ResponsePayload
     public AddUserResponse addUser(@RequestPayload AddUserRequest request) {
+        UserEntity userEntity = new UserEntity(
+            request.getLogin(),
+            request.getName(),
+            request.getPassword(),
+            AuthoritiesParser.parsToList(request.getAuthority())
+            );
+        userService.save(userEntity);
         AddUserResponse response = new AddUserResponse();
+        response.setUser(userService.getById(request.getLogin()));
         return response;
     }
 }

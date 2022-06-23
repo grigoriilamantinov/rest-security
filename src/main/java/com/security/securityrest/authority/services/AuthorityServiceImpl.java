@@ -2,6 +2,7 @@ package com.security.securityrest.authority.services;
 
 import com.security.securityrest.authority.dao.AuthoritiesRepository;
 import com.security.securityrest.authority.dto.AuthorityWithoutUser;
+import com.security.securityrest.authority.entity.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,8 +32,8 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Override
-    public AuthorityWithoutUser getById(int id) {
-        return null;
+    public Authority getById(int id) {
+        return authoritiesRepository.findById(id).orElseThrow() ;
     }
 
     @Override

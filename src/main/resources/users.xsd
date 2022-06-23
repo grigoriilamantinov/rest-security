@@ -48,6 +48,9 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="login" type="xs:string"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+                <xs:element name="authority" type="tns:valueList"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -64,6 +67,9 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="login" type="xs:string"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+                <xs:element name="authority" type="tns:valueList"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -71,7 +77,7 @@
     <xs:element name="addUserResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="user" type="xs:string"/>
+                <xs:element name="user" type="tns:user"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
