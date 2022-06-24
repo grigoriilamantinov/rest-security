@@ -27,11 +27,14 @@ public class UserEndpoint {
     private static final String NAMESPACE_URI = "http://user.entity.users.securityrest.security.com";
 
     private final UserService userService;
+    private final AuthoritiesParser authoritiesParser;
 
     public UserEndpoint(
-        @Autowired UserService userService
+        @Autowired final UserService userService,
+        @Autowired final AuthoritiesParser authoritiesParser
     ) {
         this.userService = userService;
+        this.authoritiesParser = authoritiesParser;
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getUserByLoginRequest")
@@ -78,7 +81,7 @@ public class UserEndpoint {
                 request.getLogin(),
                 request.getName(),
                 request.getPassword(),
-                AuthoritiesParser.parsToList(request.getAuthority())
+                authoritiesParser.parsToList(request.getAuthority())
             );
             userService.save(userEntity);
 

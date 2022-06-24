@@ -10,16 +10,16 @@ import java.util.stream.Collectors;
 
 @Component
 public class AuthoritiesParser {
-    public static AuthorityService authorityService;
+    public AuthorityService authorityService;
 
     public AuthoritiesParser(
-        @Autowired AuthorityService authorityService
+        @Autowired final AuthorityService authorityService
     ) {
-        AuthoritiesParser.authorityService = authorityService;
+        this.authorityService = authorityService;
     }
 
-    public static List<Authority> parsToList(final List<String> stringXML) {
-        return stringXML.stream()
+    public List<Authority> parsToList(final List<String> userRolesNumberRepresentation) {
+        return userRolesNumberRepresentation.stream()
             .map(roleId -> authorityService.getById(Integer.parseInt(roleId)))
             .collect(Collectors.toList());
     }

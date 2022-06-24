@@ -10,19 +10,14 @@ public class ValidationControl {
     private final static Pattern digitPattern = Pattern.compile("\\d");
 
     public static boolean checkInput(final AddUserRequest request) {
-        Matcher matcherDigit = digitPattern.matcher(request.getPassword());
-        Matcher matcherBigLetterPattern = bigLetterPattern.matcher(request.getPassword());
+        final Matcher matcherDigit = digitPattern.matcher(request.getPassword());
+        final Matcher matcherBigLetterPattern = bigLetterPattern.matcher(request.getPassword());
 
-        try {
-            if (request.getLogin().equals(null) || request.getPassword() == null || request.getName().equals(null)) {
-                return false;
-            } else if (matcherDigit.find() && matcherBigLetterPattern.find()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
-           return false;
+        if (request.getLogin() == null || request.getPassword() == null || request.getName() == null) {
+            return false;
+        } else {
+            return matcherDigit.find() && matcherBigLetterPattern.find();
         }
+
     }
 }

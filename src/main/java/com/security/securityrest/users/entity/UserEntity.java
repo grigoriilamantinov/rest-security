@@ -11,8 +11,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -53,10 +51,4 @@ public class UserEntity {
         joinColumns = @JoinColumn(name = "users_login"),
         inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private List<Authority> rolesList;
-
-    public UserEntity(String login, String firstName, String password) {
-        this.login = login;
-        this.firstName = firstName;
-        this.password = password;
-    }
 }

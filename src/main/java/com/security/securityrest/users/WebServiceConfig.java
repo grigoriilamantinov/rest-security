@@ -16,8 +16,10 @@ import org.springframework.xml.xsd.XsdSchema;
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
     @Bean
-    public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
-        MessageDispatcherServlet servlet = new MessageDispatcherServlet();
+    public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(
+        final ApplicationContext applicationContext) {
+
+        final MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean<>(servlet, "/ws/*");
@@ -25,7 +27,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 
     @Bean(name = "user")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema usersSchema) {
-        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        final DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("UsersPort");
         wsdl11Definition.setLocationUri("/ws");
         wsdl11Definition.setTargetNamespace("http://user.entity.users.securityrest.security.com");

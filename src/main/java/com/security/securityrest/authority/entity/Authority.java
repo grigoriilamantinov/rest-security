@@ -46,9 +46,4 @@ public class Authority {
         joinColumns = @JoinColumn(name = "roles_id"),
         inverseJoinColumns = @JoinColumn(name = "users_login"))
     private List<UserEntity> usersList;
-
-    public Authority(int id, String role) {
-        this.id = id;
-        this.role = role;
-    }
 }

@@ -1,13 +1,11 @@
 package com.security.securityrest.authority.services;
 
 import com.security.securityrest.authority.dao.AuthoritiesRepository;
-import com.security.securityrest.authority.dto.AuthorityWithoutUser;
 import com.security.securityrest.authority.entity.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.NoSuchElementException;
 
 @Service
 public class AuthorityServiceImpl implements AuthorityService {
@@ -20,14 +18,9 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Override
-    public List<AuthorityWithoutUser> getAll() {
-        return authoritiesRepository.findAll().stream()
-            .map(authority -> AuthorityWithoutUser.of(authority))
-            .collect(Collectors.toList());
-    }
-
-    @Override
     public Authority getById(final int id) {
-        return authoritiesRepository.findById(id).orElseThrow() ;
+        return authoritiesRepository.findById(id)
+            .orElseThrow(() -> new NoSuchElementException(
+                String.format("No element with id = %s in authority database", id)));
     }
 }

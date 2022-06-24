@@ -20,14 +20,12 @@ public class UserListTransformer {
     private final String login;
     private static final String SPACE = " ";
 
-    public static UserList of (final List<UserEntity> userEntityList) {
-        UserList userList = new UserList();
-        for (UserEntity user : userEntityList) {
-            userList.getUsersValueList()
-                .add(user.getFirstName()
-                        + SPACE
-                        + user.getLogin()
-            );
+    public static UserList of(final List<UserEntity> userEntities) {
+        final UserList userList = new UserList();
+        for (final UserEntity user : userEntities) {
+            userList
+                .getUsersValueList()
+                .add(user.getFirstName() + SPACE + user.getLogin());
         }
         return userList;
     }
