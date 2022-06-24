@@ -44,24 +44,24 @@
         </xs:complexType>
     </xs:element>
 
-<!--    <xs:element name="updateUserRequest">-->
-<!--        <xs:complexType>-->
-<!--            <xs:sequence>-->
-<!--                <xs:element name="login" type="xs:string"/>-->
-<!--                <xs:element name="name" type="xs:string"/>-->
-<!--                <xs:element name="password" type="xs:string"/>-->
-<!--                <xs:element name="authority" type="tns:valueList"/>-->
-<!--            </xs:sequence>-->
-<!--        </xs:complexType>-->
-<!--    </xs:element>-->
+    <xs:element name="updateUserRequest">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="login" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="password" type="xs:string"/>
+            <xs:element name="authority" type="tns:valueList"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
 
-<!--    <xs:element name="updateUserResponse">-->
-<!--        <xs:complexType>-->
-<!--            <xs:sequence>-->
-<!--                <xs:element name="user" type="xs:string"/>-->
-<!--            </xs:sequence>-->
-<!--        </xs:complexType>-->
-<!--    </xs:element>-->
+    <xs:element name="updateUserResponse">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="success" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
 
     <xs:element name="addUserRequest">
         <xs:complexType>
@@ -78,7 +78,6 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="success" type="xs:boolean"/>
-                <xs:element name="user" type="tns:user"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -104,17 +103,4 @@
     <xs:simpleType name="valueList">
         <xs:list itemType="xs:string"/>
     </xs:simpleType>
-
-
-
-
-
-<!--    <xs:simpleType name="authority">-->
-<!--        <xs:restriction base="xs:string">-->
-<!--            <xs:enumeration value="Operator"/>-->
-<!--            <xs:enumeration value="Analytic"/>-->
-<!--            <xs:enumeration value="Admin"/>-->
-<!--        </xs:restriction>-->
-<!--    </xs:simpleType>-->
-
 </xs:schema>

@@ -1,17 +1,21 @@
 package com.security.securityrest.users.services;
 
-import com.security.securityrest.users.entity.UserEntity;
-import com.security.securityrest.users.entity.user.User;
-import com.security.securityrest.users.entity.user.UserList;
-
-import java.util.List;
+import com.security.securityrest.users.entity.user.AddUserRequest;
+import com.security.securityrest.users.entity.user.AddUserResponse;
+import com.security.securityrest.users.entity.user.DeleteUserResponse;
+import com.security.securityrest.users.entity.user.GetAllUserResponse;
+import com.security.securityrest.users.entity.user.GetUserByLoginResponse;
+import com.security.securityrest.users.entity.user.UpdateUserRequest;
+import com.security.securityrest.users.entity.user.UpdateUserResponse;
 
 public interface UserService {
-    UserList getAll();
+    GetAllUserResponse getAll();
 
-    void save(UserEntity userEntity);
+    AddUserResponse save(AddUserRequest request);
 
-    User getById(String id);
+    UpdateUserResponse update(UpdateUserRequest request);
 
-    void delete(String id);
+    GetUserByLoginResponse getByLogin(String id);
+
+    DeleteUserResponse deleteByLogin(String id);
 }

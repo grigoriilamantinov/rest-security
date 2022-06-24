@@ -1,7 +1,6 @@
 package com.security.securityrest.users.dto;
 
 import com.security.securityrest.users.entity.UserEntity;
-import com.security.securityrest.users.entity.user.User;
 import com.security.securityrest.users.entity.user.UserList;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -9,7 +8,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter
