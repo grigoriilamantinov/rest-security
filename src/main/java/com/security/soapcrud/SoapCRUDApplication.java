@@ -1,13 +1,13 @@
-package com.security.securityrest;
+package com.security.soapcrud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SecurityRestApplication {
+public class SoapCRUDApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SecurityRestApplication.class, args);
+        SpringApplication.run(SoapCRUDApplication.class, args);
     }
 
 }

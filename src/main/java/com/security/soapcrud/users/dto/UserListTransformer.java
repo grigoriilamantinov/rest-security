@@ -1,7 +1,7 @@
-package com.security.securityrest.users.dto;
+package com.security.soapcrud.users.dto;
 
-import com.security.securityrest.users.entity.UserEntity;
-import com.security.securityrest.users.entity.user.UserList;
+import com.security.soapcrud.users.entity.UserEntity;
+import com.security.soapcrud.users.entity.user.UserList;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

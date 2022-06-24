@@ -1,6 +1,6 @@
-package com.security.securityrest.authority.dto;
+package com.security.soapcrud.authority.dto;
 
-import com.security.securityrest.authority.entity.Authority;
+import com.security.soapcrud.authority.entity.Authority;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

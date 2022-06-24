@@ -1,7 +1,7 @@
-package com.security.securityrest.common;
+package com.security.soapcrud.common;
 
-import com.security.securityrest.authority.entity.Authority;
-import com.security.securityrest.authority.services.AuthorityService;
+import com.security.soapcrud.authority.entity.Authority;
+import com.security.soapcrud.authority.services.AuthorityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

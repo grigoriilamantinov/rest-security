@@ -1,6 +1,6 @@
-package com.security.securityrest.common;
+package com.security.soapcrud.common;
 
-import com.security.securityrest.users.entity.UserEntity;
+import com.security.soapcrud.users.entity.UserEntity;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

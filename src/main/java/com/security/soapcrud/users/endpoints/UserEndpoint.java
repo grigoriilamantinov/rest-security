@@ -1,15 +1,15 @@
-package com.security.securityrest.users.endpoints;
+package com.security.soapcrud.users.endpoints;
 
-import com.security.securityrest.users.entity.user.AddUserRequest;
-import com.security.securityrest.users.entity.user.AddUserResponse;
-import com.security.securityrest.users.entity.user.DeleteUserRequest;
-import com.security.securityrest.users.entity.user.DeleteUserResponse;
-import com.security.securityrest.users.entity.user.GetAllUserResponse;
-import com.security.securityrest.users.entity.user.GetUserByLoginRequest;
-import com.security.securityrest.users.entity.user.GetUserByLoginResponse;
-import com.security.securityrest.users.entity.user.UpdateUserRequest;
-import com.security.securityrest.users.entity.user.UpdateUserResponse;
-import com.security.securityrest.users.services.UserService;
+import com.security.soapcrud.users.entity.user.AddUserRequest;
+import com.security.soapcrud.users.entity.user.AddUserResponse;
+import com.security.soapcrud.users.entity.user.DeleteUserRequest;
+import com.security.soapcrud.users.entity.user.DeleteUserResponse;
+import com.security.soapcrud.users.entity.user.GetAllUserResponse;
+import com.security.soapcrud.users.entity.user.GetUserByLoginRequest;
+import com.security.soapcrud.users.entity.user.GetUserByLoginResponse;
+import com.security.soapcrud.users.entity.user.UpdateUserRequest;
+import com.security.soapcrud.users.entity.user.UpdateUserResponse;
+import com.security.soapcrud.users.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;

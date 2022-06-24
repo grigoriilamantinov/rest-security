@@ -1,4 +1,4 @@
-package com.security.securityrest.users;
+package com.security.soapcrud.users;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;

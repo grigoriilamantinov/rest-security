@@ -1,6 +1,6 @@
-package com.security.securityrest.authority.entity;
+package com.security.soapcrud.authority.entity;
 
-import com.security.securityrest.users.entity.UserEntity;
+import com.security.soapcrud.users.entity.UserEntity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

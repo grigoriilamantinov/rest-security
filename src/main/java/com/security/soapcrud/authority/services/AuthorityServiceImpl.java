@@ -1,7 +1,7 @@
-package com.security.securityrest.authority.services;
+package com.security.soapcrud.authority.services;
 
-import com.security.securityrest.authority.dao.AuthoritiesRepository;
-import com.security.securityrest.authority.entity.Authority;
+import com.security.soapcrud.authority.dao.AuthoritiesRepository;
+import com.security.soapcrud.authority.entity.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

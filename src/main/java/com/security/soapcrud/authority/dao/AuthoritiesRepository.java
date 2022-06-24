@@ -1,6 +1,6 @@
-package com.security.securityrest.authority.dao;
+package com.security.soapcrud.authority.dao;
 
-import com.security.securityrest.authority.entity.Authority;
+import com.security.soapcrud.authority.entity.Authority;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

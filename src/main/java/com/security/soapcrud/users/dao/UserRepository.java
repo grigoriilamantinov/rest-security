@@ -1,6 +1,6 @@
-package com.security.securityrest.users.dao;
+package com.security.soapcrud.users.dao;
 
-import com.security.securityrest.users.entity.UserEntity;
+import com.security.soapcrud.users.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

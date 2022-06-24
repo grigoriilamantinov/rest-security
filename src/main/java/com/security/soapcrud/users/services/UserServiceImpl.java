@@ -1,19 +1,19 @@
-package com.security.securityrest.users.services;
+package com.security.soapcrud.users.services;
 
-import com.security.securityrest.common.AuthoritiesParser;
-import com.security.securityrest.common.ValidationControl;
-import com.security.securityrest.users.dao.UserRepository;
+import com.security.soapcrud.common.AuthoritiesParser;
+import com.security.soapcrud.common.ValidationControl;
+import com.security.soapcrud.users.dao.UserRepository;
 
-import com.security.securityrest.users.dto.UserListTransformer;
-import com.security.securityrest.users.dto.UserTransformer;
-import com.security.securityrest.users.entity.UserEntity;
-import com.security.securityrest.users.entity.user.AddUserRequest;
-import com.security.securityrest.users.entity.user.AddUserResponse;
-import com.security.securityrest.users.entity.user.DeleteUserResponse;
-import com.security.securityrest.users.entity.user.GetAllUserResponse;
-import com.security.securityrest.users.entity.user.GetUserByLoginResponse;
-import com.security.securityrest.users.entity.user.UpdateUserRequest;
-import com.security.securityrest.users.entity.user.UpdateUserResponse;
+import com.security.soapcrud.users.dto.UserListTransformer;
+import com.security.soapcrud.users.dto.UserTransformer;
+import com.security.soapcrud.users.entity.UserEntity;
+import com.security.soapcrud.users.entity.user.AddUserRequest;
+import com.security.soapcrud.users.entity.user.AddUserResponse;
+import com.security.soapcrud.users.entity.user.DeleteUserResponse;
+import com.security.soapcrud.users.entity.user.GetAllUserResponse;
+import com.security.soapcrud.users.entity.user.GetUserByLoginResponse;
+import com.security.soapcrud.users.entity.user.UpdateUserRequest;
+import com.security.soapcrud.users.entity.user.UpdateUserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
